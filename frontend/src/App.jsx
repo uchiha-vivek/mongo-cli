@@ -15,9 +15,10 @@ function App() {
       } else if (command === 'find') {
         res = await axios.post('http://localhost:5000/command', { command, collection });
       }
-      setResponse(res.data);
+      setResponse(JSON.stringify(res.data,null,2));
     } catch (error) {
       console.error('Error executing command:', error);
+      setResponse('Error in executing command')
     }
   };
 
